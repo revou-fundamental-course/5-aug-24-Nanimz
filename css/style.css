@@ -1,1 +1,33 @@
 /* Ini CSS */
+
+main {
+  display: flex;
+}
+
+aside {
+  width: 50%;
+}
+
+form {
+  padding: 12px;
+  background-color: aliceblue;
+}
+
+button {
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+}
+
+.bg-cornsilk {
+  background-color: cornsilk;
+}
+
+.bg-red{
+    background-color: red;
+    color: white;
+}
+
+footer{
+    text-align: center;
+}
