@@ -1,51 +1,93 @@
-/* Umum */
+/*Ini CSS*/
+
+/* Pengaturan dasar untuk seluruh halaman */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f5f5dc;
 }
 
+/* Pengaturan untuk elemen heading */
 h1 {
-  text-align: center;
   margin-bottom: 10px;
 }
 
+/* Pengaturan untuk elemen header */
 header {
-  text-align: center;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #d2b48c;
 }
 
+/* Pengaturan untuk elemen utama, yaitu layout dua kolom */
 main {
   display: flex;
   padding: 20px;
 }
 
+/* Pengaturan untuk bagian aside yang menjadi kontainer konten */
 aside {
   width: 50%;
   padding: 20px;
 }
 
+/* Pengaturan untuk form, termasuk latar belakang, padding, dan shadow */
 form {
-  background-color: #f9f9f9;
+  background-color: #f0e68c;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Pengaturan untuk kontainer input, ikon, dan inputnya */
+.input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* Pengaturan posisi ikon dalam input */
+.input-container .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+}
+
+/* Pengaturan input field, termasuk padding untuk menghindari tumpang tindih dengan ikon */
+.input-container input {
+  width: 100%;
+  padding: 10px 10px 10px 40px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; 
+}
+
+/* Pengaturan efek ketika input difokuskan */
+.input-container input:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* Pengaturan grup elemen form */
 .form-group {
   margin-bottom: 15px;
 }
 
+/* Pengaturan margin untuk input radio */
 input[type="number"],
 input[type="radio"] {
   margin-top: 5px;
   margin-right: 10px;
 }
 
+/* Pengaturan tata letak tombol di dalam form */
 .form-btn-container {
   display: flex;
   justify-content: space-between;
 }
 
+/* Pengaturan tombol secara umum */
 button {
   padding: 8px 16px;
   border: none;
@@ -53,25 +95,150 @@ button {
   cursor: pointer;
 }
 
+/* Warna latar belakang untuk tombol "Hitung BMI" */
 .bg-cornsilk {
-  background-color: cornsilk;
+  background-color: green;
+  color: white; 
 }
 
+/* Warna latar belakang untuk tombol reset */
 .bg-red {
   background-color: red;
   color: white;
 }
 
+/* Pengaturan teks paragraf */
+.teks {
+  text-align: justify;
+}
+
+/* Pengaturan section untuk hasil BMI */
 section {
-  background-color: #f9f9f9;
+  background-color: #f0e68c;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pengaturan untuk menampilkan hasil BMI */
+.hasil-bmi {
+  background-color: #f0e68c;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  display: none; /* Hasil tidak ditampilkan sampai hitung BMI diklik */
+}
+
+
+.hasil-bmi p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+#hasilBMI {
+  background-color: #f0e68c;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-top: 20px;
+}
+
+#kategoriBMI {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#nilaiBMI {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.info-section {
+  background-color: #d2b48c;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+button {
+  display: block;
+  margin: 20px auto; /* Memastikan tombol berada di tengah */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
 
 footer {
   text-align: center;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #d2b48c;
 }
+
+/* Style untuk pilihan jenis kelamin */
+.gender-container {
+  margin-bottom: 20px;
+}
+
+.gender-container p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.gender-option input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.2); /* Membesarkan radio button */
+}
+
+.gender-option label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.gender-option input[type="radio"]:checked + label {
+  color: #007bff; 
+  font-weight: bold;
+}
+
+/* Pengaturan tombol konsultasi */
+.bg-green {
+  background-color: #25d366;
+  color: white;
+}
+
+.bg-blue {
+  background-color: #3b5998;
+  color: white;
+}
+
+.bg-pink {
+  background-color: #e4405f;
+  color: white;
+}
+
+.bg-red {
+  background-color: #d44638;
+  color: white;
+}
+
+

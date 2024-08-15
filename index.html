@@ -4,65 +4,126 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalkulator BMI</title>
+    <!-- Mengimpor stylesheet eksternal untuk ikon font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Menerapkan gaya untuk halaman web-->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Kalkulator BMI</h1>
-      <p>
-        Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk
-        tubuh yang menunjang penampilan, berat badan ideal juga menandakan
-        kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, hitung sekarang di
-        kalkulator BMI.
-      </p>
-    </header>
-
     <main>
+      <!-- Bagian sebelah kiri yang berisi form input dan informasi tambahan -->
       <aside>
+        <header>
+          <h1>Kalkulator BMI</h1>
+        </header>
+        <p class="teks">
+          Berat badan ideal adalah impian semua orang. Tidak hanya memiliki
+          bentuk tubuh yang menunjang penampilan, berat badan ideal juga
+          menandakan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, hitung
+          sekarang di kalkulator BMI.
+        </p>
+        <!-- Form untuk menghitung BMI -->
         <form id="bmiForm">
-          <div class="form-group">
-            <h3>Jenis Kelamin</h3>
+          <div class="gender-container">
+            <p>Jenis Kelamin :</p>
+            <!-- Opsi untuk memilih jenis kelamin -->
+            <div class="gender-option">
+              <input type="radio" name="jenis-kelamin" id="laki" />
+              <label for="laki">Laki-Laki</label>
+            </div>
+            <div class="gender-option">
+              <input type="radio" name="jenis-kelamin" id="perempuan" />
+              <label for="perempuan">Perempuan</label>
+            </div>
+          </div>
+          <!-- Input untuk berat badan dalam kilogram -->
+          <div class="input-container">
+            <i class="fa fa-pencil icon"></i>
             <input
-              type="radio"
-              id="laki-laki"
-              name="jenis-kelamin"
-              value="laki-laki"
-            /><label for="laki-laki">Pria</label>
+              type="number"
+              placeholder="Berat Badan (kg)"
+              id="berat-badan"
+            />
+          </div>
+          <!-- Input untuk usia dalam tahun -->
+          <div class="input-container">
+            <i class="fa fa-pencil icon"></i>
+            <input type="number" placeholder="Usia (tahun)" id="usia" />
+          </div>
+          <!-- Input untuk tinggi badan dalam centimeter -->
+          <div class="input-container">
+            <i class="fa fa-pencil icon"></i>
             <input
-              type="radio"
-              id="perempuan"
-              name="jenis-kelamin"
-              value="perempuan"
-            /><label for="perempuan">Wanita</label>
-          </div>
-
-          <div class="form-group">
-            <h3>Berat Badan (kg)</h3>
-            <input type="number" id="berat-badan" placeholder="80" />
-          </div>
-
-          <div class="form-group">
-            <h3>Usia (Tahun)</h3>
-            <input type="number" id="usia" placeholder="27" />
-          </div>
-
-          <div class="form-group">
-            <h3>Tinggi badan (cm)</h3>
-            <input type="number" id="tinggi-badan" placeholder="180" />
+              type="number"
+              placeholder="Tinggi Badan (cm)"
+              id="tinggi-badan"
+            />
           </div>
 
           <div class="form-btn-container">
-            <button type="button" class="button bg-cornsilk" onclick="hitungBMI()">Hitung BMI</button>
+            <button
+              type="button"
+              class="button bg-cornsilk"
+              onclick="hitungBMI()"
+            >
+              Hitung BMI
+            </button>
             <button type="reset" class="button bg-red">Reset</button>
           </div>
         </form>
+        <br />
+        <strong>Keunggulan Fitur</strong>
+        <ol>
+          <li>Menghitung berat badan</li>
+          <li>Menentukan kategori berat badan ideal atau tidak</li>
+          <li>Mempersiapkan program penurunan berat badan</li>
+        </ol>
+
+        <p class="teks">
+          Kalkulator ini hanya boleh digunakan orang dewasa (wanita hamil atau
+          menyusui tidak boleh mengandalkan pembacaan BMI ini) dan tidak ada
+          tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi
+          dengan orang yang memenuhi syarat seperti dokter.
+        </p>
+
+        <p class="teks">
+          Kalkulator akan memberi Anda gambaran tentang perbandingan berat badan
+          Anda dengan nilai umum. Indeks Massa Tubuh (atau BMI) dihitung sebagai
+          berat Anda (dalam kilogram) dibagu dengan kuadrat tinggi badan Anda
+          (dalam meter) atau BMI = Kg/M<sup>2</sup>
+        </p>
       </aside>
 
+      <!-- Bagian sebelah kanan yang menampilkan hasil BMI -->
       <aside>
+        <header>
+          <h1>Hasil</h1>
+        </header>
         <section id="hasilBMI">
-          <h2>Hasil</h2>
           <p id="kategoriBMI">Belum ada hasil.</p>
-          <p id="nilaiBMI"></p>
+          <span id="nilaiBMI"></span>
+          <button id="downloadButton">Download Hasil BMI</button>
+          <p id="hasil"></p>
+          <!-- Tempat untuk menampilkan informasi tambahan berdasarkan kategori BMI -->
+          <div id="infoBMI" class="info-section"></div>
+          <!-- Tombol untuk menghubungi via WhatsApp, Facebook, Instagram, dan Gmail, awalnya tersembunyi -->
+          <div id="konsultasiButtons" style="display: none; margin-top: 20px">
+            <button id="whatsappButton" class="button bg-green">
+              Konsultasi via WhatsApp
+            </button>
+            <button id="facebookButton" class="button bg-blue">
+              Konsultasi via Facebook
+            </button>
+            <button id="instagramButton" class="button bg-pink">
+              Konsultasi via Instagram
+            </button>
+            <button id="gmailButton" class="button bg-red">
+              Konsultasi via Gmail
+            </button>
+          </div>
         </section>
       </aside>
     </main>
@@ -70,7 +131,7 @@
     <footer>
       <p>Made by Nanimz</p>
     </footer>
-
+    <!-- Mengimpor file JavaScript untuk logika perhitungan BMI -->
     <script src="js/script.js"></script>
   </body>
 </html>
